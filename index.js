@@ -1,8 +1,19 @@
-const btn = document.querySelector('#btn1');
+const size = 5;
+
+const btn = document.querySelector('#size');
 btn.addEventListener('click', () => {
     alert("Button clicked");
-    boxes(5);
+    let sliderSize = document.getElementById("slider").value;
+    alert(sliderSize);
+    boxes(sliderSize);
 });
+
+const btnClear = document.querySelector('#clear');
+btnClear.addEventListener('click', () => {
+    alert("Clear clicked");
+    boxes(size);
+});
+
 
 boxes(16);
 
@@ -30,8 +41,9 @@ function boxes(size) {
         const box = document.createElement('div');
         box.classList.add('box');
         box.classList.add('grid-item');
+        box.addEventListener('mouseover', (event) => { box.style.backgroundColor = 'black';});
         box.style = 'background-color: white;';
-        box.textContent = i + 1;
+        // box.textContent = i + 1;
         container.appendChild(box);
     }
 

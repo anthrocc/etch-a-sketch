@@ -12,7 +12,14 @@
 
     <h1>Etch-a-Sketch</h1>
 
-    <button id="btn1">Click me!</button>
+    <button id="clear">Clear Board</button>
+
+    <div class="slideContainer">
+        <p>Size:</p>
+        <input id="slider" type="range" min="1" max="100" value="50" oninput="this.nextElementSibling.value = this.value">
+        <output>50</output>
+        <button id="size">Set Size</button>
+    </div>
     
     <div id="container" class="grid"></div>
 
