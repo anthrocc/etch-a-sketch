@@ -1,5 +1,6 @@
 const size = 5;
 
+// Set the size of the board
 const btn = document.querySelector('#size');
 btn.addEventListener('click', () => {
     alert("Button clicked");
@@ -8,6 +9,7 @@ btn.addEventListener('click', () => {
     boxes(sliderSize);
 });
 
+// Clear the board;
 const btnClear = document.querySelector('#clear');
 btnClear.addEventListener('click', () => {
     alert("Clear clicked");
@@ -17,6 +19,8 @@ btnClear.addEventListener('click', () => {
 
 boxes(16);
 
+
+// Create the board
 function boxes(size) {
 
     const container = document.getElementById('container');
@@ -37,19 +41,21 @@ function boxes(size) {
     container.style.gridTemplateRows = `repeat(${cols}, 1fr)`;
     container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
 
-    for(let i = 0; i < cellTotal; i++) {
+    for (let i = 0; i < cellTotal; i++) {
         const box = document.createElement('div');
         box.classList.add('box');
         box.classList.add('grid-item');
-        box.addEventListener('mouseover', (event) => { box.style.backgroundColor = 'black';});
+        box.addEventListener('mouseover', (event) => { box.style.backgroundColor = 'black'; });
         box.style = 'background-color: white;';
         // box.textContent = i + 1;
         container.appendChild(box);
     }
-
-    // const box = document.createElement('div');
-    // box.classList.add('box');
-    // box.style.cssText = 'height: 200px; width: 200px; background-color: blue;';
-    // container.appendChild(box);
-
 }
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        alert(button.id);
+        // TODO send colorID to line 48 for the hover
+    });
+});
